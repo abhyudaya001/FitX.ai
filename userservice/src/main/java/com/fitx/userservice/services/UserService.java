@@ -5,10 +5,12 @@ import com.fitx.userservice.dto.RegisterRequest;
 import com.fitx.userservice.dto.UserResponse;
 import lombok.AllArgsConstructor;
 import com.fitx.userservice.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository repository;
@@ -47,5 +49,10 @@ public class UserService {
         userResponse.setCreatedAt(user.getCreatedAt());
         userResponse.setUpdateAt(user.getUpdateAt());
         return userResponse;
+    }
+
+    public Boolean existByUserId(String userId) {
+        log.info("Calling user service for {}",userId);
+        return repository.existsById(userId);
     }
 }
