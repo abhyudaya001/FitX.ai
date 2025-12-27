@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: userservice
   datasource:
     url: jdbc:postgresql://localhost:5432/fitness-micro-user
     username: abhyudayakandwal
@@ -17,5 +15,4 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
 
 server:
-  port: 8081
-
+  port: 8082
